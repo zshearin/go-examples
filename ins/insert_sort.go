@@ -6,46 +6,63 @@ import (
 	"strconv"
 )
 
-//Contestants is a list of Contestant objects
-type Contestants []Contestant
-
-//Contestant is basic struct for demonstrating insert sort
-type Contestant struct {
+type contestants []contestant
+type contestant struct {
 	Name  string
 	Place int
 }
 
-//InsertSortOnPlace assumes input is already in order and inserts passed in value to existing list of values
-func InsertSortOnPlace(contestants Contestants, contestant Contestant) Contestants {
+//DoExample runs example
+func DoExample() {
+	drivers := contestants{
+		{Name: "Zach", Place: 1},
+		{Name: "Jack", Place: 2},
+		{Name: "Jeff", Place: 3},
+		{Name: "Dale", Place: 5},
+		{Name: "Carl", Place: 6},
+	}
+	driver4 := contestant{Name: "Kevin", Place: 4}
 
-	curPlace := contestant.Place
+	fmt.Printf("Insert sort example\n=====================\n")
+	fmt.Println("Initial list:")
+	drivers.print()
+	fmt.Printf("\nAdding ")
+	driver4.print()
+	finalResult := insertSortOnPlace(drivers, driver4)
 
-	indexToInsert := sort.Search(len(contestants), func(i int) bool {
-		return contestants[i].Place > curPlace
+	fmt.Println("\n\nFinal result: ")
+	finalResult.print()
+}
+
+func insertSortOnPlace(cl contestants, c contestant) contestants {
+
+	curPlace := c.Place
+
+	indexToInsert := sort.Search(len(cl), func(i int) bool {
+		return cl[i].Place > curPlace
 	})
 
 	//append empty object
-	contestants = append(contestants, Contestant{})
+	cl = append(cl, contestant{})
 
 	//shift entries one
-	copy(contestants[(indexToInsert+1):], contestants[indexToInsert:])
+	copy(cl[(indexToInsert+1):], cl[indexToInsert:])
 
 	//set right index to the object to insert
-	contestants[indexToInsert] = contestant
+	cl[indexToInsert] = c
 
-	return contestants
+	return cl
 
 }
 
-//Print prints Contestants
-func (c Contestants) Print() {
+func (c contestants) print() {
 	for _, driver := range c {
-		driver.Print()
+		driver.print()
+		fmt.Printf("\n")
 	}
 
 }
 
-//Print prints a Contestant
-func (c Contestant) Print() {
-	fmt.Printf("Name: " + c.Name + ", Place: " + strconv.Itoa(c.Place) + "\n")
+func (c contestant) print() {
+	fmt.Printf("Name: " + c.Name + ", Place: " + strconv.Itoa(c.Place))
 }
