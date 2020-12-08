@@ -1,11 +1,10 @@
 package main
 
-import (
-	"github.com/zshearin/go-examples/ins"
-)
+import "github.com/zshearin/go-examples/context"
 
 func main() {
-	//batch.DoBatch()
 
-	ins.DoExample()
+	//sort.DoExample()
+
+	context.DoExample()
 }
