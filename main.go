@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/zshearin/go-examples/basic"
+	//"github.com/zshearin/go-examples/basic"
+	ifc "github.com/zshearin/go-examples/interface-cast"
 )
 
 func main() {
@@ -10,7 +11,9 @@ func main() {
 
 	//context.DoExample()
 
-	basic.DoExample()
+	//basic.DoExample()
+	
+	ifc.DoExample()
 
 	//string.DoExample()
 }
