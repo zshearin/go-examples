@@ -1,10 +1,6 @@
 package main
 
-import (
-	//"github.com/zshearin/go-examples/basic"
-	//ifc "github.com/zshearin/go-examples/interface-cast"
-	"github.com/zshearin/go-examples/encryption"
-)
+import "github.com/zshearin/go-examples/sql"
 
 func main() {
 
@@ -13,5 +9,8 @@ func main() {
 	//basic.DoExample()
 	//ifc.DoExample()
 	//string.DoExample()
-	encryption.DoExample()
+	// encryption.DoExample()
+
+	sql.DoExample()
+	// embed.DoExample()
 }
