@@ -1,6 +1,8 @@
 package main
 
-import "github.com/zshearin/go-examples/sql"
+import (
+	"github.com/zshearin/go-examples/cobra"
+)
 
 func main() {
 
@@ -11,6 +13,8 @@ func main() {
 	//string.DoExample()
 	// encryption.DoExample()
 
-	sql.DoExample()
+	// sql.DoExample()
 	// embed.DoExample()
+
+	cobra.DoExample()
 }
